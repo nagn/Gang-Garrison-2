@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var player, playerId, commandLimitRemaining;
 
 player = argument0;
@@ -273,7 +274,9 @@ while(commandLimitRemaining > 0) {
                     var message;
                     message = "/:/"+COLOR_WHITE+string_replace_all(name, "/:/", "/;/")+" is now known as "+string_replace_all(newname, "/:/", "/;/");
                     write_ubyte(global.publicChatBuffer, CHAT_PUBLIC_MESSAGE);
-                    write_ubyte(global.publicChatBuffer, string_length(message));
+                    
+var player, playerId, commandLimitRemaining;
+
                     write_string(global.publicChatBuffer, message);
                     print_to_chat(message);// For the host
                     
