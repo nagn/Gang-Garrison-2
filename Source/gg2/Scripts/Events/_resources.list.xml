@@ -25,4 +25,8 @@
   <resource name="doEventArenaRestart" type="RESOURCE"/>
   <resource name="sendEventFireWeapon" type="RESOURCE"/>
   <resource name="doEventFireWeapon" type="RESOURCE"/>
+  <resource name="sendEventLatchHealingTarget" type="RESOURCE"/>
+  <resource name="doEventLatchHealingTarget" type="RESOURCE"/>
+  <resource name="sendEventReleaseHealingTarget" type="RESOURCE"/>
+  <resource name="doEventReleaseHealingTarget" type="RESOURCE"/>
 </resources>

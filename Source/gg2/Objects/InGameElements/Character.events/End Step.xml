@@ -133,6 +133,9 @@ if (player == global.myself)
         view_yview[0] = y-view_hview[0]/2;
     }
 }
+
+// this needs to happen at the end of everything so it's here
+lastKeyState = keyState|pressedKeys;
 </argument>
       </arguments>
     </action>

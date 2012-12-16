@@ -488,6 +488,26 @@ do {
             }
             break;
             
+        case MEDIC_LATCH:
+            receiveCompleteMessage(global.serverSocket,2,global.tempBuffer);
+            
+            targetPlayer = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            medicPlayer =  ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            
+            doEventLatchHealingTarget(targetPlayer, medicPlayer);
+            
+            break;
+        
+        case MEDIC_RELEASE:
+            receiveCompleteMessage(global.serverSocket,2,global.tempBuffer);
+            
+            targetPlayer = ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            medicPlayer =  ds_list_find_value(global.players, read_ubyte(global.tempBuffer));
+            
+            doEventReleaseHealingTarget(targetPlayer, medicPlayer);
+            
+            break;
+            
         default:
             show_message("The Server sent unexpected data");
             game_end();

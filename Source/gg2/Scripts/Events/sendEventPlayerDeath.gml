@@ -25,3 +25,12 @@ if(assistant and instance_exists(assistant)) {
     write_ubyte(global.eventBuffer, 255);
 }  
 write_ubyte(global.eventBuffer, damageSource);
+
+if (victim.object.healer != -1 and global.isHost)
+{
+    if (instance_exists(victim.object.healer)) // this has to be done this way because of the nature of "-1" an instance being "self"
+    {
+        sendEventReleaseHealingTarget(victim, victim.object.healer);
+        doEventReleaseHealingTarget(victim, victim.object.healer);
+    }
+}
