@@ -43,7 +43,7 @@ if (overtime and !startedOvertime) {
         redCanWin = false;
         blueCanWin = true;
     }
-    else if (global.bluecaps == global.redCaps) { //Its anyone's game
+    else if (global.blueCaps == global.redCaps) { //Its anyone's game
        redCanWin = true;
        blueCanWin = true;
     }
