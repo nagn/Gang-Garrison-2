@@ -27,16 +27,20 @@
         {
             var rdir, vectorfactor;
             rdir = point_direction(other.x,other.y,x,y);
-            vectorfactor = point_distance(0, 0, power(sin(degtorad(rdir)), 2), power(cos(degtorad(rdir)), 2));
+            vectorfactor = point_distance(0, 0, sin(degtorad(rdir)), cos(degtorad(rdir)));
+            if (1 - distance_to_object(other)/other.blastRadius &lt;= 0.25)
+                continue;
             motion_add(rdir, min(15, other.knockback-other.knockback*(distance_to_object(other)/other.blastRadius)) * vectorfactor);
-            if(other.team != team or id==other.ownerPlayer.object) &amp;&amp; !ubered and hp &gt; 0
+            if((other.team != team or id==other.ownerPlayer.object) and !ubered and hp &gt; 0)
             {
-                hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)));
+                var dmg;
+                dmg = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
+                if id == other.ownerPlayer.object// self damage resistance
+                    dmg *= 5/9;
+                hp -= dmg;
                 timeUnscathed = 0;
                 if (id == other.ownerPlayer.object and lastDamageDealer != -1 and lastDamageDealer != other.ownerPlayer and other.reflector == noone)
-                {
                     lastDamageSource = FINISHED_OFF_GIB;
-                }
                 else 
                 {
                     if (lastDamageDealer != other.ownerPlayer and lastDamageDealer != player and other.reflector != lastDamageDealer)
@@ -79,14 +83,16 @@
                     vspeed*=0.8
                 }
             }
-            cloakAlpha = min(cloakAlpha + 0.2, 1);
+            cloakAlpha = max(cloakAlpha, 0.3);
+            cloakFlicker = true;
+            alarm[7] = 3;
         }
     }
 
     
     with (Sentry){
         if (distance_to_object(other) &lt; other.blastRadius) &amp;&amp; (team != other.team) { 
-        hp -= other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)));
+        hp -= other.explosionDamage*10/9*(1-(distance_to_object(other)/other.blastRadius)); // we want sentries to take ~11% extra damage so that two stickies will do 100 instead of 90 dmg. we don't change the base damage so scouts can't be 2-hitted.
         lastDamageDealer = other.ownerPlayer;
         lastDamageSource = WEAPON_MINEGUN;
         }   
@@ -98,7 +104,7 @@
             isShieldRegenerating = false;
             //allow overkill to be applied directly to the target
             var hitDamage;
-            hitDamage = other.explosionDamage*sqr((1-(distance_to_object(other)/other.blastRadius)));
+            hitDamage = other.explosionDamage*(1-(distance_to_object(other)/other.blastRadius));
             if (hitDamage &gt; shieldHp) {
                 hp -= hitDamage - shieldHp;
                 hp -= shieldHp * shieldResistance;

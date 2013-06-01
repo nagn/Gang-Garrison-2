@@ -19,6 +19,11 @@ justShot=true;
 readyToShoot = false;
 alarm[0] = reloadTime + 20*owner.zoomed;
 
+// for drawing:
+tracerAlpha = 0.8;
+shotx = x;
+shoty = y;
+
 var hit;
 var x1,y1,xm,ym, len;
 var hitline;
@@ -28,6 +33,7 @@ y1=y;
 x2=x+lengthdir_x(len,owner.aimDirection);
 y2=y+lengthdir_y(len,owner.aimDirection);
 
+alarm[6] = alarm[0];
 while(len&gt;1) {
     xm=(x1+x2)/2;
     ym=(y1+y2)/2;
@@ -76,7 +82,9 @@ with(Player) {
             }
             object.alarm[3] = ASSIST_TIME;
             object.lastDamageDealer = other.ownerPlayer;
-            object.cloakAlpha = min(object.cloakAlpha + 0.3, 1);
+            object.cloakAlpha = max(object.cloakAlpha, 0.3);
+            object.cloakFlicker = true;
+            object.alarm[7] = 3;
             if(global.gibLevel &gt; 0){
                 blood = instance_create(object.x,object.y,Blood);
                 blood.direction = other.owner.aimDirection-180;
@@ -124,6 +132,7 @@ with(Generator) {
         }
     }
 }
+
 </argument>
       </arguments>
     </action>

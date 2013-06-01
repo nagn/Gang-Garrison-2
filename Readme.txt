@@ -277,7 +277,7 @@ demise. Climb the tower to drop down on unsuspecting opponents!
 
 7. cp_dirtbowl
 by Vaati
-Somewhere in the middle of nowhere, BLU is ready to launch it's secret wewapon at
+Somewhere in the middle of nowhere, BLU is ready to launch it's secret weapon at
 RED's base within Mt. Dirtbowl. RED must push forward while BLU must hold them off
 on three map fronts in this control point attack style map.
 
@@ -448,7 +448,7 @@ mrfredman, MedO, Synnah
 Programmers:
 MedO, Cube7 aka Chris P. Bacon, Andrew "cspotcode" Bradley, Vaati, Taimat, Findude, Juicebox360, Jebus_Chris,
 Leiche, Xeyk, pach, Austin "Psychopath" Benz, L, technoviking, AJF, Alexander "Wareya" Nadeau, Vindicator,
-NAGN and RebelINS
+NAGN, Orpheon, JaxOf7 and RebelINS
 
 Artists:
 mrfredman, Fishmatt, BassieEnAdriaan, Timohtep, Elkondo, Waterfall and Skeledude
@@ -462,7 +462,7 @@ fishmatt, vaati, king metroid, Taters, agh, Faust, Tarzan, BassieEnAdriaan, McGe
 With additional art and inspiration provided by the incredible Gang Garrison community!
 
 License:
-Copyright (C) 2008-2011 Faucet Software
+Copyright (C) 2008-2013 Faucet Software
 http://www.ganggarrison.com
 
 This program is free software; 
@@ -488,6 +488,14 @@ You can find more information on Faucet Networking at http://gmc.yoyogames.com/i
 
 This game uses the Download Manager DLL, created by Hobbel.  It was wrapped into an extension by cspotcode.
 You can find more information on the Download Manager DLL at http://www.hobbl.com/gmdlls/downloadmanager
+
+This game uses the Faucet Forwarding Extension, created by NAGN, which wraps libminiupnp.
+miniupnp is availible under the BSD license: see miniupnp.license for full license.
+You can find more about Faucet Forwarding at its GitHub Page:
+https://github.com/nagn/Faucet-Forwarding
+
+This game uses the 7-zip command line version, available under the LGPL, see 7zip.license for full license.
+You can find more information on it here: http://www.7-zip.org/
 
 Readme Changelog
 2/7/09 - fishmatt - cleaned everything up for 2.0
