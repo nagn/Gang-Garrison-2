@@ -43,6 +43,12 @@
             case "script":
                 val = "";
                 break;
+            case "script2":
+                val = "";
+                break;
+            case "script3":
+                val = "";
+                break;
             case "edittext2":
             case "edittext":
             case "editnum":

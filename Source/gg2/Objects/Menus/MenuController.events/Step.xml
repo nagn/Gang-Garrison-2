@@ -52,6 +52,12 @@ if(editing != -1) {
                 case "script":
                     execute_string(item_script[virtualitem]);
                     break;
+                case "script2":
+                    banUser(item_var[virtualitem])
+                    break;
+                case "script3":
+                    kickUser(item_var[virtualitem])
+                    break;
                 case "editkey":
                 case "editkeyormouse":
                     io_clear();

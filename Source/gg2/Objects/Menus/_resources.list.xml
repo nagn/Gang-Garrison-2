@@ -11,6 +11,8 @@
   <resource name="InGameMenuController" type="RESOURCE"/>
   <resource name="CreditsController" type="RESOURCE"/>
   <resource name="DevMessageChecker" type="RESOURCE"/>
+  <resource name="PlayerController" type="RESOURCE"/>
+  <resource name="KickController" type="RESOURCE"/>
   <resource name="MenuController" type="RESOURCE"/>
   <resource name="HaxxyController" type="RESOURCE"/>
 </resources>

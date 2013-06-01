@@ -4,7 +4,16 @@ if(socket_has_error(socket) or (current_time-lastContact > 30000))
     instance_destroy();
     exit;
 }
-
+var ip, bannedIp;
+for (ip=0;ip < ds_list_size(global.banList);ip+=1) {
+//if the ip matches a banned ip
+bannedIp = ds_list_find_value(global.banList,ip)
+if (socket_remote_ip(socket) == bannedIp) {
+    socket_destroy(socket);
+    instance_destroy();
+    exit;
+    }
+}
 if(state==STATE_CLIENT_DOWNLOADING)
 {
     lastContact = current_time;

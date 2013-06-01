@@ -25,7 +25,32 @@
     
     global.CustomMapCollisionSprite = -1;
     
-    window_set_region_scale(-1, false);
+    //load the banned ips
+    global.banList = ds_list_create();
+    if(file_exists("banList.txt")) {
+        var fileHandle, i, bannedIp;
+        fileHandle = file_text_open_read("banList.txt");
+        for(i = 1; !file_text_eof(fileHandle); i += 1) {
+            bannedIp = file_text_read_string(fileHandle);
+            // remove leading whitespace from the string
+            while(string_char_at(bannedIp, 0) == " " || string_char_at(bannedIp, 0) == chr(9)) { // while it starts with a space or tab
+              bannedIp = string_delete(bannedIp, 0, 1); // delete that space or tab
+            }
+            if(bannedIp != "" && string_char_at(bannedIp, 0) != "#") { // if it's not blank and it's not a comment (starting with #)
+                ds_list_add(global.banList, bannedIp);
+            }
+            file_text_readln(fileHandle);
+        }
+        file_text_close(fileHandle);
+    }else {
+    //create the ban list anyways
+        var fileHandle;
+        fileHandle = file_text_open_write("banList.txt");
+        file_text_write_string(fileHandle, "");
+        file_text_close(fileHandle);
+        
+    }
+    
     
     ini_open("gg2.ini");
     global.playerName = ini_read_string("Settings", "PlayerName", "Player");

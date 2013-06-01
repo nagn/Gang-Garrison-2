@@ -1,6 +1,5 @@
 if(serverbalance != 0)
     balancecounter+=1;
-
 // Register with Lobby Server every 30 seconds
 if(global.useLobbyServer and (frame mod 900)==0)
     sendLobbyRegistration();

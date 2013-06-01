@@ -27,7 +27,14 @@
     menu_addback("Return to Game", '
         instance_destroy();
     ');
-    menu_addlink("", '');
+    menu_addlink("Kick User", '        
+        instance_destroy();
+        instance_create(0,0,KickController);
+    ');
+    menu_addlink("Ban Player", '        
+        instance_destroy();
+        instance_create(0,0,PlayerController);
+    ');
     menu_addlink("Disconnect", '
         // Force dedicated mode to off so you can go to main menu instead of just restarting server
         global.dedicatedMode = 0;
